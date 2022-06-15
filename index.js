@@ -17,8 +17,11 @@ var upload = multer({
     dest:Upload_Folder
 })
 
-// file upload via post method at home route
-app.post("/",upload.array("avatar",3),(req,res)=>{
+// file upload from multiple field
+app.post("/",upload.fields([
+    {name: "avatar", maxCount: 3},
+    {name: "gallery", maxCount: 2}
+]),(req,res)=>{
     res.send("Your file uploaded")
 });
 
