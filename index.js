@@ -17,14 +17,11 @@ var upload = multer({
     dest:Upload_Folder
 })
 
-// // file upload via post method at home route
-// app.post("/",upload.array("avatar",3),(req,res)=>{
-//     res.send("Your file uploaded")
-// });
 // file upload via post method at home route
-app.post("/",upload.single("avatar"),(req,res)=>{
+app.post("/",upload.array("avatar",3),(req,res)=>{
     res.send("Your file uploaded")
 });
+
 
 
 app.listen(PORT,(req,res)=>{
